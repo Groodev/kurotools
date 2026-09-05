@@ -221,3 +221,63 @@
   background: #CBD5E1;
   border-radius: 999px;
 }
+
+/* ==========================================================================
+   Scroll Reveal Animations (GPU Accelerated & 60-120fps Optimized)
+   ========================================================================== */
+.reveal-init {
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-fade-up {
+  transform: translate3d(0, 34px, 0);
+}
+
+.reveal-fade-down {
+  transform: translate3d(0, -34px, 0);
+}
+
+.reveal-fade-left {
+  transform: translate3d(-34px, 0, 0);
+}
+
+.reveal-fade-right {
+  transform: translate3d(34px, 0, 0);
+}
+
+.reveal-zoom-in {
+  transform: scale3d(0.92, 0.92, 1);
+}
+
+.reveal-clay-pop {
+  transform: translateY(24px) scale3d(0.92, 0.92, 1);
+}
+
+.reveal-fade {
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) scale3d(1, 1, 1) !important;
+}
+
+/* Fallback & Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-init,
+  .reveal-fade-up,
+  .reveal-fade-down,
+  .reveal-fade-left,
+  .reveal-fade-right,
+  .reveal-zoom-in,
+  .reveal-clay-pop {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+

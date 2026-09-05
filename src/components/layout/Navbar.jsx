@@ -18,10 +18,12 @@ export default function Navbar({
 }) {
   const navItems = [
     { id: 'home', label: 'Beranda' },
-    { id: 'downloader', label: 'Media Downloader', color: 'clayPurple' },
-    { id: 'shortener', label: 'Link Shortener', color: 'clayGreen' },
+    { id: 'downloader', label: 'Downloader', color: 'clayPurple' },
+    { id: 'shortener', label: 'Shortener', color: 'clayGreen' },
     { id: 'barcode', label: 'Barcode & QR', color: 'clayOrange' },
-    { id: 'author', label: 'Author LinkTree', color: 'clayBlue' },
+    { id: 'meta-glasses', label: 'Meta Glasses', color: 'clayCyan' },
+    { id: 'secretdexx', label: 'SecretDexx', color: 'clayEmerald' },
+    { id: 'author', label: 'Author', color: 'clayBlue' },
   ];
 
   return (

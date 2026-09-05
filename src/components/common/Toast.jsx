@@ -25,7 +25,7 @@ export default function Toast({ message, type = 'success', onClose, duration = 3
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 animate-bounce-short">
+    <div className="fixed bottom-20 right-6 z-50 animate-bounce-short">
       <div 
         className={`flex items-center gap-3 px-5 py-3.5 rounded-2xl border shadow-clay-card bg-white transition-all duration-200 ${borderColors[type] || borderColors.info}`}
       >

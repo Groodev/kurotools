@@ -9,7 +9,12 @@ import MediaDownloader from './components/modules/MediaDownloader.jsx';
 import LinkShortener from './components/modules/LinkShortener.jsx';
 import BarcodeGenerator from './components/modules/BarcodeGenerator.jsx';
 import AuthorLinkTree from './components/modules/AuthorLinkTree.jsx';
+import MetaGlassesConverter from './components/modules/MetaGlassesConverter.jsx';
+import SecretDexxPortal from './components/modules/SecretDexxPortal.jsx';
 import Toast from './components/common/Toast.jsx';
+import ScrollProgressBar from './components/common/ScrollProgressBar.jsx';
+import ScrollToTop from './components/common/ScrollToTop.jsx';
+import ScrollReveal from './components/common/ScrollReveal.jsx';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -44,8 +49,11 @@ export default function App() {
   }, [activeTab]);
 
   return (
-    <div className="min-h-screen flex flex-col justify-between selection:bg-clayPurple-light selection:text-clayPurple-dark">
+    <div className="min-h-screen flex flex-col justify-between selection:bg-clayPurple-light selection:text-clayPurple-dark relative">
       
+      {/* Scroll Progress Bar at the top */}
+      <ScrollProgressBar />
+
       {/* Top Navigation */}
       <Navbar
         activeTab={activeTab}
@@ -77,27 +85,51 @@ export default function App() {
         )}
 
         {activeTab === 'downloader' && (
-          <MediaDownloader 
-            showToast={showToast} 
-          />
+          <ScrollReveal animation="fade-up" duration={500}>
+            <MediaDownloader 
+              showToast={showToast} 
+            />
+          </ScrollReveal>
         )}
 
         {activeTab === 'shortener' && (
-          <LinkShortener 
-            showToast={showToast} 
-          />
+          <ScrollReveal animation="fade-up" duration={500}>
+            <LinkShortener 
+              showToast={showToast} 
+            />
+          </ScrollReveal>
         )}
 
         {activeTab === 'barcode' && (
-          <BarcodeGenerator 
-            showToast={showToast} 
-          />
+          <ScrollReveal animation="fade-up" duration={500}>
+            <BarcodeGenerator 
+              showToast={showToast} 
+            />
+          </ScrollReveal>
         )}
 
         {activeTab === 'author' && (
-          <AuthorLinkTree 
-            showToast={showToast} 
-          />
+          <ScrollReveal animation="fade-up" duration={500}>
+            <AuthorLinkTree 
+              showToast={showToast} 
+            />
+          </ScrollReveal>
+        )}
+
+        {activeTab === 'meta-glasses' && (
+          <ScrollReveal animation="fade-up" duration={500}>
+            <MetaGlassesConverter 
+              showToast={showToast} 
+            />
+          </ScrollReveal>
+        )}
+
+        {activeTab === 'secretdexx' && (
+          <ScrollReveal animation="fade-up" duration={500}>
+            <SecretDexxPortal 
+              showToast={showToast} 
+            />
+          </ScrollReveal>
         )}
       </main>
 
@@ -105,6 +137,9 @@ export default function App() {
       <Footer 
         setActiveTab={setActiveTab} 
       />
+
+      {/* Floating Scroll To Top Button */}
+      <ScrollToTop />
 
       {/* Global Toast Notification */}
       <Toast 
@@ -115,3 +150,4 @@ export default function App() {
     </div>
   );
 }
+
