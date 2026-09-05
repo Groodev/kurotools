@@ -3,7 +3,7 @@ import { Heart, ShieldCheck, Sparkles, Activity, Wrench } from 'lucide-react';
 
 export default function Footer({ setActiveTab }) {
   return (
-    <footer className="w-full mt-24 border-t border-white/80 bg-white/60 backdrop-blur-md py-12 px-4 sm:px-8">
+    <footer className="w-full mt-24 border-t border-claySlate-200/80 bg-white/95 py-12 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           
@@ -18,11 +18,11 @@ export default function Footer({ setActiveTab }) {
               </span>
             </div>
             <p className="text-xs text-claySlate-500 max-w-md leading-relaxed">
-              Platform <em>all-in-one web utility</em> modern berkinerja tinggi dengan pengalaman visual interaktif mengusung tema <strong>Claymorphism</strong> yang lembut, estetis, dan responsif.
+              Platform <em>all-in-one web utility</em> modern berkinerja tinggi dengan pengalaman visual interaktif yang lembut, estetis, dan responsif.
             </p>
             <div className="flex items-center gap-2 pt-1">
               <span className="clay-badge bg-clayPurple-light/50 text-clayPurple-dark text-[10px]">
-                Claymorphism UI
+                Modern UI
               </span>
               <span className="clay-badge bg-clayGreen-light/50 text-emerald-800 text-[10px]">
                 100% Gratis

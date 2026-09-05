@@ -25,7 +25,7 @@ export default function Navbar({
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full px-4 sm:px-8 py-3.5 bg-white/80 backdrop-blur-md border-b border-white/60 transition-all">
+    <header className="sticky top-0 z-40 w-full px-4 sm:px-8 py-3.5 bg-white/95 border-b border-claySlate-200/80 transition-all">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
         {/* Brand Logo */}
@@ -51,7 +51,7 @@ export default function Navbar({
               </span>
             </div>
             <p className="text-[11px] font-semibold text-claySlate-400 hidden sm:block">
-              Claymorphism Web Utility Suite
+              All-in-One Web Utility Suite
             </p>
           </div>
         </div>

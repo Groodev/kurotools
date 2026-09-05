@@ -28,7 +28,7 @@ export default function AuthorLinkTree({ showToast }) {
     name: 'Kuro',
     handle: '@kurodev',
     role: 'Full-Stack Developer & UI/UX Craftsman',
-    bio: 'Pecinta antarmuka bertekstur Claymorphism, membangun perangkat lunak web modern yang cepat, tanpa iklan, dan mudah diakses oleh siapa saja.',
+    bio: 'Pengembang perangkat lunak web modern yang cepat, estetis, tanpa iklan, dan mudah diakses oleh siapa saja.',
     avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80',
     location: 'Indonesia',
     status: 'Tersedia untuk Kolaborasi & Proyek Baru',
@@ -163,14 +163,7 @@ export default function AuthorLinkTree({ showToast }) {
       {/* Floating Clay Profile Card */}
       <div 
         className="clay-card p-8 sm:p-10 mb-8 text-center bg-white border border-clayBlue/30 relative overflow-hidden"
-        style={{
-          boxShadow: '16px 24px 44px -6px rgba(56, 189, 248, 0.28), -8px -8px 24px rgba(255, 255, 255, 1), inset 2px 2px 4px rgba(255, 255, 255, 0.9)'
-        }}
       >
-        {/* Subtle Decorative Background Blob */}
-        <div className="absolute -top-16 -right-16 w-48 h-48 bg-clayBlue-light/40 rounded-full blur-2xl pointer-events-none"></div>
-        <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-clayPurple-light/40 rounded-full blur-2xl pointer-events-none"></div>
-
         {/* Top Actions: Share & QR */}
         <div className="flex items-center justify-between mb-6">
           <button
@@ -242,7 +235,7 @@ export default function AuthorLinkTree({ showToast }) {
             ⚛️ React & Next.js
           </span>
           <span className="clay-badge bg-white text-emerald-800 text-[11px]">
-            🎨 Claymorphism UI
+            🎨 Modern UI / UX
           </span>
           <span className="clay-badge bg-white text-orange-800 text-[11px]">
             ⚡ API Architecture

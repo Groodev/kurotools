@@ -161,7 +161,7 @@ export default function BarcodeGenerator({ showToast }) {
           Barcode & QR Code Generator
         </h1>
         <p className="text-sm text-claySlate-600 max-w-lg mx-auto font-medium">
-          Hasilkan kode QR 2D dan Barcode 1D (Code128) resolusi tajam dengan palet warna pastel claymorphism kustom.
+          Hasilkan kode QR 2D dan Barcode 1D (Code128) resolusi tajam dengan palet warna pastel kustom.
         </p>
       </div>
 
@@ -170,9 +170,6 @@ export default function BarcodeGenerator({ showToast }) {
         {/* Left Column: Controls & Customization */}
         <div 
           className="lg:col-span-7 clay-card p-6 sm:p-8 space-y-6 border border-clayOrange/20"
-          style={{
-            boxShadow: '12px 18px 32px -4px rgba(251, 146, 60, 0.22), -8px -8px 24px rgba(255, 255, 255, 0.95), inset 2px 2px 4px rgba(255, 255, 255, 0.9)'
-          }}
         >
           {/* Type Toggle: QR Code vs Barcode */}
           <div>

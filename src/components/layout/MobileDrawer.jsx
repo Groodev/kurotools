@@ -42,7 +42,7 @@ export default function MobileDrawer({
     {
       id: 'shortener',
       name: 'Link Shortener',
-      desc: 'Pemendek URL kilat, custom alias & instant QR',
+      desc: 'Pemendek URL kilat Short.io & instant QR',
       icon: <LinkIcon className="w-5 h-5 text-emerald-600" />,
       color: 'bg-emerald-100 text-emerald-800',
       badge: '1-Click Copy',
@@ -75,15 +75,12 @@ export default function MobileDrawer({
       {/* Backdrop */}
       <div 
         onClick={onClose}
-        className="fixed inset-0 bg-claySlate-900/40 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-claySlate-900/50 transition-opacity"
       />
 
       {/* Drawer Panel */}
       <div 
-        className="relative w-4/5 max-w-sm h-full bg-white flex flex-col p-6 shadow-2xl border-r border-white/80 z-10 overflow-y-auto animate-slide-in"
-        style={{
-          boxShadow: '16px 0 32px rgba(148, 163, 184, 0.4), inset 2px 2px 4px rgba(255, 255, 255, 0.9)'
-        }}
+        className="relative w-4/5 max-w-sm h-full bg-white flex flex-col p-6 shadow-2xl border-r border-claySlate-200 z-10 overflow-y-auto animate-slide-in"
       >
         {/* Header Drawer */}
         <div className="flex items-center justify-between pb-4 mb-6 border-b border-claySlate-100">
@@ -181,7 +178,7 @@ export default function MobileDrawer({
 
           <div className="text-center">
             <p className="text-[11px] text-claySlate-400">
-              KuroTools • Claymorphism Edition
+              KuroTools • Web Utility Suite
             </p>
           </div>
         </div>

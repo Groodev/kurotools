@@ -73,7 +73,7 @@ export default function HeroSection({ setActiveTab, onScrollToCatalog }) {
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-clayPurple/30 shadow-clay-pill mb-6 text-clayPurple-dark">
           <Sparkles className="w-4 h-4 text-clayPurple animate-pulse" />
           <span className="text-xs font-black tracking-wide uppercase">
-            Modern Claymorphism Experience
+            Modern Web Experience
           </span>
         </div>
 
@@ -91,7 +91,7 @@ export default function HeroSection({ setActiveTab, onScrollToCatalog }) {
 
         {/* Subtitle */}
         <p className="text-base sm:text-lg text-claySlate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-          Unduh media favorit, perpendek tautan dengan 1-klik, buat barcode dan kode QR kustom, hingga bagikan profil author dengan sensasi antarmuka clay 3D yang kenyal dan responsif.
+          Unduh media favorit, perpendek tautan dengan 1-klik, buat barcode dan kode QR kustom, hingga bagikan profil author dengan sensasi antarmuka modern yang nyaman dan responsif.
         </p>
 
         {/* Call to Actions */}

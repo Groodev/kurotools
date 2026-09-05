@@ -217,9 +217,6 @@ export default function MediaDownloader({ showToast }) {
       {/* Main URL Input Card (No format/quality options here, as requested) */}
       <div 
         className="clay-card p-6 sm:p-8 mb-8 border border-clayPurple/20"
-        style={{
-          boxShadow: '12px 18px 32px -4px rgba(168, 85, 247, 0.2), -8px -8px 24px rgba(255, 255, 255, 0.95), inset 2px 2px 4px rgba(255, 255, 255, 0.9)'
-        }}
       >
         <form onSubmit={handleFetch} className="space-y-4">
           
@@ -227,7 +224,7 @@ export default function MediaDownloader({ showToast }) {
             Tautan Media (TikTok, YouTube, Instagram, X/Twitter, dll)
           </label>
 
-          {/* Thick Claymorphism URL Input Bar */}
+          {/* URL Input Bar */}
           <div className="relative flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <div className="relative flex-1">
               <input

@@ -163,9 +163,6 @@ export default function LinkShortener({ showToast }) {
       {/* Main Shortener Card */}
       <div 
         className="clay-card p-6 sm:p-8 mb-8 border border-clayGreen/30"
-        style={{
-          boxShadow: '12px 18px 32px -4px rgba(52, 211, 153, 0.22), -8px -8px 24px rgba(255, 255, 255, 0.95), inset 2px 2px 4px rgba(255, 255, 255, 0.9)'
-        }}
       >
         <form onSubmit={handleShorten} className="space-y-4">
           

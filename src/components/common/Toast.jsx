@@ -27,10 +27,7 @@ export default function Toast({ message, type = 'success', onClose, duration = 3
   return (
     <div className="fixed bottom-6 right-6 z-50 animate-bounce-short">
       <div 
-        className={`flex items-center gap-3 px-5 py-3.5 rounded-2xl border shadow-clay-card backdrop-blur-md transition-all duration-300 ${borderColors[type] || borderColors.info}`}
-        style={{
-          boxShadow: '8px 12px 24px -4px rgba(148, 163, 184, 0.35), -4px -4px 14px 0px rgba(255, 255, 255, 0.9), inset 2px 2px 4px rgba(255, 255, 255, 0.8)'
-        }}
+        className={`flex items-center gap-3 px-5 py-3.5 rounded-2xl border shadow-clay-card bg-white transition-all duration-200 ${borderColors[type] || borderColors.info}`}
       >
         {icons[type] || icons.info}
         <span className="text-sm font-bold">{message}</span>
