@@ -25,6 +25,19 @@ export default defineConfig(({ mode }) => {
               }
             });
           }
+        },
+        '/api/shortio': {
+          target: 'https://api.short.io',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api\/shortio/, ''),
+          configure: (proxy) => {
+            proxy.on('proxyReq', (proxyReq) => {
+              const key = process.env.SHORTIO_API_KEY || process.env.VITE_SHORTIO_API_KEY;
+              if (key) {
+                proxyReq.setHeader('authorization', key);
+              }
+            });
+          }
         }
       }
     }

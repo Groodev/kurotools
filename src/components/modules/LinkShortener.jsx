@@ -12,13 +12,15 @@ import {
   ArrowRight,
   Globe,
   Scissors,
-  X
+  X,
+  Zap,
+  RefreshCw
 } from 'lucide-react';
 import QRCode from 'qrcode';
+import { shortenUrl } from '../../services/shortioApi.js';
 
 export default function LinkShortener({ showToast }) {
   const [longUrl, setLongUrl] = useState('');
-  const [customAlias, setCustomAlias] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [latestResult, setLatestResult] = useState(null);
   const [history, setHistory] = useState([]);
@@ -50,7 +52,7 @@ export default function LinkShortener({ showToast }) {
       if (navigator.clipboard && navigator.clipboard.readText) {
         const text = await navigator.clipboard.readText();
         if (text) {
-          setLongUrl(text);
+          setLongUrl(text.trim());
           showToast('Tautan panjang ditempel dari clipboard!', 'info');
         }
       } else {
@@ -61,17 +63,7 @@ export default function LinkShortener({ showToast }) {
     }
   };
 
-  // Generate random short hash
-  const generateSlug = () => {
-    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    let result = '';
-    for (let i = 0; i < 6; i++) {
-      result += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return result;
-  };
-
-  // Shorten URL Handler
+  // Shorten URL Handler via Short.io
   const handleShorten = async (e) => {
     e.preventDefault();
     if (!longUrl.trim()) {
@@ -87,27 +79,8 @@ export default function LinkShortener({ showToast }) {
     setIsLoading(true);
 
     try {
-      let shortUrl = '';
-      const slug = customAlias.trim() ? customAlias.trim().replace(/[^a-zA-Z0-9-_]/g, '') : generateSlug();
-
-      // If user provided a custom shortener API endpoint
-      if (apiConfig && apiConfig.shortenerEndpoint) {
-        try {
-          const endpoint = `${apiConfig.shortenerEndpoint}?url=${encodeURIComponent(urlToProcess)}&alias=${encodeURIComponent(slug)}`;
-          const res = await fetch(endpoint);
-          if (res.ok) {
-            const data = await res.json();
-            shortUrl = data.shortUrl || data.url || `https://kuro.to/${slug}`;
-          }
-        } catch (e) {
-          console.warn('Custom shortener API error, fallback to local', e);
-        }
-      }
-
-      if (!shortUrl) {
-        // High quality realistic shortlink URL
-        shortUrl = `https://kuro.to/${slug}`;
-      }
+      const data = await shortenUrl(urlToProcess);
+      const shortUrl = data.shortURL;
 
       // Generate instant QR Code DataURL
       const qrDataUrl = await QRCode.toDataURL(shortUrl, {
@@ -120,23 +93,27 @@ export default function LinkShortener({ showToast }) {
       });
 
       const newRecord = {
-        id: Date.now(),
+        id: data.id || Date.now(),
         longUrl: urlToProcess,
         shortUrl,
-        slug,
         qrDataUrl,
-        createdAt: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }),
+        createdAt: new Date().toLocaleDateString('id-ID', { 
+          day: 'numeric', 
+          month: 'short', 
+          hour: '2-digit', 
+          minute: '2-digit' 
+        }),
         clicks: 0
       };
 
       setLatestResult(newRecord);
-      const updatedHistory = [newRecord, ...history.filter(h => h.slug !== slug)].slice(0, 15);
+      const updatedHistory = [newRecord, ...history.filter(h => h.shortUrl !== shortUrl)].slice(0, 15);
       saveHistory(updatedHistory);
 
-      showToast('Link berhasil dipendekkan!', 'success');
-      setCustomAlias('');
+      showToast('Link berhasil dipendekkan via Short.io!', 'success');
     } catch (err) {
-      showToast('Terjadi kesalahan saat memendekkan tautan.', 'error');
+      console.error('Shorten error:', err);
+      showToast(err.message || 'Terjadi kesalahan saat memendekkan tautan.', 'error');
     } finally {
       setIsLoading(false);
     }
@@ -172,14 +149,14 @@ export default function LinkShortener({ showToast }) {
       {/* Header */}
       <div className="text-center mb-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-clayGreen-light text-emerald-900 font-extrabold text-xs mb-3 shadow-clay-pill">
-          <LinkIcon className="w-4 h-4" />
-          <span>Fast URL Shortener</span>
+          <Zap className="w-4 h-4 text-emerald-700 animate-pulse" />
+          <span>Powered by Short.io • kurolink.s.gy</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-black text-claySlate-900 tracking-tight mb-3">
           Link Shortener & Instant QR
         </h1>
         <p className="text-sm text-claySlate-600 max-w-lg mx-auto font-medium">
-          Ubah URL panjang menjadi tautan ringkas yang mudah dibagikan lengkap dengan kustom alias dan kode QR instan.
+          Ubah URL panjang menjadi tautan ringkas berkecepatan tinggi yang siap dibagikan lengkap dengan kode QR otomatis.
         </p>
       </div>
 
@@ -190,64 +167,55 @@ export default function LinkShortener({ showToast }) {
           boxShadow: '12px 18px 32px -4px rgba(52, 211, 153, 0.22), -8px -8px 24px rgba(255, 255, 255, 0.95), inset 2px 2px 4px rgba(255, 255, 255, 0.9)'
         }}
       >
-        <form onSubmit={handleShorten} className="space-y-5">
+        <form onSubmit={handleShorten} className="space-y-4">
           
-          {/* Long URL Input */}
-          <div>
-            <label className="block text-xs font-bold text-claySlate-700 uppercase tracking-wider mb-2">
-              URL Panjang Tujuan
-            </label>
-            <div className="relative">
+          <label className="block text-xs font-bold text-claySlate-700 uppercase tracking-wider">
+            URL Panjang Tujuan
+          </label>
+
+          {/* Clean Input & Shorten Button */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <div className="relative flex-1">
               <input
                 type="text"
                 value={longUrl}
                 onChange={(e) => setLongUrl(e.target.value)}
                 placeholder="https://example.com/very/long/destination/article/page/..."
-                className="w-full pl-5 pr-28 py-4 clay-input-field text-sm font-semibold placeholder:text-claySlate-400"
+                className="w-full pl-5 pr-24 py-4 clay-input-field text-sm font-semibold placeholder:text-claySlate-400"
               />
               <button
                 type="button"
                 onClick={handlePaste}
                 className="absolute right-2.5 top-1/2 -translate-y-1/2 px-3 py-2 rounded-xl bg-white border border-claySlate-200 text-claySlate-700 hover:text-emerald-700 hover:border-emerald-300 text-xs font-black flex items-center gap-1.5 shadow-sm active:scale-95 transition-all"
+                title="Tempel dari Clipboard"
               >
                 <Clipboard className="w-3.5 h-3.5" />
                 <span>Paste</span>
               </button>
             </div>
+
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="clay-button clay-button-green py-4 px-8 text-sm font-black flex items-center justify-center gap-2 shadow-clay-green disabled:opacity-60 whitespace-nowrap"
+            >
+              {isLoading ? (
+                <>
+                  <RefreshCw className="w-4 h-4 animate-spin" />
+                  <span>Memendekkan...</span>
+                </>
+              ) : (
+                <>
+                  <Scissors className="w-4 h-4" />
+                  <span>Shorten URL</span>
+                </>
+              )}
+            </button>
           </div>
 
-          {/* Custom Alias (Optional) & Shorten Button */}
-          <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-            
-            <div className="sm:col-span-7">
-              <label className="block text-xs font-bold text-claySlate-700 uppercase tracking-wider mb-2">
-                Kustom Alias <span className="text-claySlate-400 font-normal lowercase">(opsional)</span>
-              </label>
-              <div className="flex items-center">
-                <span className="px-3.5 py-3.5 bg-claySlate-100 border border-r-0 border-claySlate-200 rounded-l-2xl text-xs font-bold text-claySlate-500">
-                  kuro.to/
-                </span>
-                <input
-                  type="text"
-                  value={customAlias}
-                  onChange={(e) => setCustomAlias(e.target.value)}
-                  placeholder="alias-kustom-kamu"
-                  className="flex-1 py-3.5 px-3 clay-input-field rounded-l-none text-sm font-semibold placeholder:text-claySlate-400"
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-5 sm:self-end">
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="w-full clay-button clay-button-green py-3.5 px-6 text-sm font-black flex items-center justify-center gap-2 shadow-clay-green disabled:opacity-60"
-              >
-                <Scissors className="w-4 h-4" />
-                <span>{isLoading ? 'Memendekkan...' : 'Shorten URL'}</span>
-              </button>
-            </div>
-
+          <div className="flex items-center justify-between pt-1 text-xs text-claySlate-400 font-medium">
+            <span>Domain aktif: <strong className="text-emerald-800">kurolink.s.gy</strong></span>
+            <span>Otomatis membuat QR Code</span>
           </div>
 
         </form>
@@ -263,7 +231,7 @@ export default function LinkShortener({ showToast }) {
             </div>
             <span className="clay-badge bg-emerald-50 text-emerald-800 text-xs border border-emerald-200">
               <Check className="w-3.5 h-3.5 text-emerald-600" />
-              Tersedia
+              Short.io Aktif
             </span>
           </div>
 

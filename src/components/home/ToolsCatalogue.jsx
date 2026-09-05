@@ -42,7 +42,7 @@ export default function ToolsCatalogue({ setActiveTab }) {
       shadowClass: 'hover:shadow-clay-green',
       borderAccent: 'border-clayGreen/30',
       icon: <LinkIcon className="w-8 h-8 text-emerald-600" />,
-      desc: 'Perpendek tautan panjang dalam sekejap dengan kustom alias, satu klik salin, dan pembuatan kode QR otomatis.',
+      desc: 'Perpendek tautan panjang dalam sekejap dengan domain kurolink.s.gy, satu klik salin, dan pembuatan kode QR otomatis.',
       features: [
         'One-click copy dengan notifikasi toast',
         'Generator QR Code otomatis untuk setiap tautan',
