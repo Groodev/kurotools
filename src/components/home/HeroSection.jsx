@@ -1,0 +1,121 @@
+import React from 'react';
+import { 
+  Sparkles, 
+  ArrowRight, 
+  DownloadCloud, 
+  Link as LinkIcon, 
+  QrCode, 
+  Video, 
+  Music, 
+  Zap, 
+  Layers 
+} from 'lucide-react';
+
+export default function HeroSection({ setActiveTab, onScrollToCatalog }) {
+  return (
+    <section className="relative pt-8 pb-16 md:pt-14 md:pb-24 overflow-hidden">
+      
+      {/* Decorative Floating 3D Badges (Desktop & Tablet) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden max-w-6xl mx-auto">
+        {/* Floating Badge 1: Video MP4 (Top Left) */}
+        <div 
+          className="absolute top-4 left-4 sm:left-12 pointer-events-auto clay-badge bg-white/90 text-clayPurple-dark border border-purple-100 shadow-clay-card animate-float-slow hidden sm:flex items-center gap-2 px-4 py-2 cursor-pointer hover:scale-110"
+          onClick={() => setActiveTab('downloader')}
+          title="Buka Media Downloader"
+        >
+          <div className="w-6 h-6 rounded-full bg-clayPurple-light flex items-center justify-center text-clayPurple-dark">
+            <Video className="w-3.5 h-3.5" />
+          </div>
+          <span className="text-xs font-black">Video MP4 1080p</span>
+        </div>
+
+        {/* Floating Badge 2: Audio MP3 (Top Right) */}
+        <div 
+          className="absolute top-10 right-4 sm:right-16 pointer-events-auto clay-badge bg-white/90 text-purple-700 border border-purple-100 shadow-clay-card animate-float-medium hidden sm:flex items-center gap-2 px-4 py-2 cursor-pointer hover:scale-110"
+          onClick={() => setActiveTab('downloader')}
+          title="Buka Media Downloader"
+        >
+          <div className="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-700">
+            <Music className="w-3.5 h-3.5" />
+          </div>
+          <span className="text-xs font-black">Audio MP3 320kbps</span>
+        </div>
+
+        {/* Floating Badge 3: Instant Shortlink (Bottom Left) */}
+        <div 
+          className="absolute bottom-6 left-8 sm:left-20 pointer-events-auto clay-badge bg-white/90 text-emerald-800 border border-emerald-100 shadow-clay-card animate-float-fast hidden md:flex items-center gap-2 px-4 py-2 cursor-pointer hover:scale-110"
+          onClick={() => setActiveTab('shortener')}
+          title="Buka Link Shortener"
+        >
+          <div className="w-6 h-6 rounded-full bg-clayGreen-light flex items-center justify-center text-emerald-800">
+            <Zap className="w-3.5 h-3.5" />
+          </div>
+          <span className="text-xs font-black">⚡ Instant Shortlink</span>
+        </div>
+
+        {/* Floating Badge 4: Barcode & QR Code (Bottom Right) */}
+        <div 
+          className="absolute bottom-8 right-6 sm:right-24 pointer-events-auto clay-badge bg-white/90 text-orange-800 border border-orange-100 shadow-clay-card animate-float-slow hidden md:flex items-center gap-2 px-4 py-2 cursor-pointer hover:scale-110"
+          onClick={() => setActiveTab('barcode')}
+          title="Buka Barcode & QR Generator"
+        >
+          <div className="w-6 h-6 rounded-full bg-clayOrange-light flex items-center justify-center text-orange-800">
+            <QrCode className="w-3.5 h-3.5" />
+          </div>
+          <span className="text-xs font-black">Custom Barcode & QR</span>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="relative max-w-4xl mx-auto text-center px-4">
+        
+        {/* Top Tag Pill */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-clayPurple/30 shadow-clay-pill mb-6 text-clayPurple-dark">
+          <Sparkles className="w-4 h-4 text-clayPurple animate-pulse" />
+          <span className="text-xs font-black tracking-wide uppercase">
+            Modern Claymorphism Experience
+          </span>
+        </div>
+
+        {/* Heading */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-claySlate-900 tracking-tight leading-[1.15] mb-6">
+          Koleksi Utilitas Cepat{' '}
+          <span className="relative inline-block">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-clayPurple via-purple-600 to-clayBlue">
+              Serba Bisa
+            </span>
+            <div className="absolute -bottom-2 left-0 right-0 h-2 bg-clayPurple-light/60 rounded-full -z-10 transform -rotate-1"></div>
+          </span>
+          {' '}dalam Satu Tempat.
+        </h1>
+
+        {/* Subtitle */}
+        <p className="text-base sm:text-lg text-claySlate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+          Unduh media favorit, perpendek tautan dengan 1-klik, buat barcode dan kode QR kustom, hingga bagikan profil author dengan sensasi antarmuka clay 3D yang kenyal dan responsif.
+        </p>
+
+        {/* Call to Actions */}
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <button
+            onClick={onScrollToCatalog}
+            className="clay-button clay-button-purple px-8 py-4 text-sm sm:text-base text-white flex items-center gap-2.5 shadow-clay-purple"
+          >
+            <Layers className="w-5 h-5" />
+            <span>Jelajahi Katalog Tools</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+
+          <button
+            onClick={() => setActiveTab('downloader')}
+            className="clay-button clay-button-white px-7 py-4 text-sm sm:text-base text-claySlate-800 flex items-center gap-2.5"
+          >
+            <DownloadCloud className="w-5 h-5 text-clayPurple" />
+            <span>Media Downloader</span>
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+  );
+}

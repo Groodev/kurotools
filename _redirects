@@ -1,0 +1,16 @@
+# Netlify rewrite (proxy): a request to /api/search on this site is
+# forwarded server-side to Apple's public iTunes Search API. Status
+# 200 is what makes this a REWRITE rather than a redirect — the
+# browser's address bar, and the origin it's actually talking to,
+# never change. Since the browser only ever calls its own origin,
+# there's no cross-origin request for CORS rules to apply to; the
+# real cross-origin hop happens on Netlify's edge, server-to-server,
+# where CORS (a browser-only mechanism) is irrelevant.
+#
+# Query strings pass straight through on 200 rewrites, so a client
+# call to:
+#   /api/search?term=daft+punk&media=music&entity=song&limit=1
+# is served as:
+#   https://itunes.apple.com/search?term=daft+punk&media=music&entity=song&limit=1
+/api/search  https://itunes.apple.com/search  200
+/api/fastsaver/*  https://api.fastsaver.io/v1/:splat  200
