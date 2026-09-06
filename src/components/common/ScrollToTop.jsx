@@ -34,7 +34,7 @@ export default function ScrollToTop() {
       type="button"
       onClick={scrollToTop}
       aria-label="Kembali ke atas"
-      className={`fixed bottom-6 right-6 z-40 p-3.5 rounded-2xl clay-button clay-button-white border border-purple-100 shadow-clay-card text-clayPurple-dark hover:scale-110 active:scale-95 transition-all duration-300 group ${
+      className={`fixed bottom-6 right-6 z-40 p-3.5 rounded-2xl clay-button clay-button-white dark:bg-[#1A243B] border border-purple-100/70 dark:border-white/10 shadow-clay-card text-clayPurple-dark dark:text-purple-300 hover:scale-110 active:scale-95 transition-all duration-300 group ${
         isVisible 
           ? 'opacity-100 translate-y-0 pointer-events-auto' 
           : 'opacity-0 translate-y-8 pointer-events-none'

@@ -74,29 +74,29 @@ export default function SecretDexxPortal({ showToast }) {
   return (
     <div className="space-y-8 max-w-6xl mx-auto">
       {/* Hero Banner Showcase */}
-      <div className="clay-card p-6 sm:p-10 bg-gradient-to-br from-emerald-50/70 via-teal-50/50 to-cyan-50/70 border border-emerald-200/60 relative overflow-hidden">
+      <div className="clay-card p-6 sm:p-10 bg-gradient-to-br from-emerald-50/70 via-teal-50/50 to-cyan-50/70 dark:from-emerald-950/40 dark:via-slate-900/50 dark:to-teal-950/40 border border-emerald-200/60 dark:border-white/10 relative overflow-hidden">
         {/* Decorative background glow */}
-        <div className="absolute -right-20 -top-20 w-80 h-80 bg-emerald-300/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute -right-20 -top-20 w-80 h-80 bg-emerald-300/20 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/80 text-emerald-900 text-xs font-black">
-              <Gamepad2 className="w-3.5 h-3.5 text-emerald-600" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/80 dark:bg-emerald-950 text-emerald-900 dark:text-emerald-300 text-xs font-black">
+              <Gamepad2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
               <span>Project Unggulan Komunitas</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-black text-claySlate-900 tracking-tight flex flex-wrap items-center gap-3">
+            <h1 className="text-3xl sm:text-5xl font-black text-claySlate-900 dark:text-white tracking-tight flex flex-wrap items-center gap-3">
               <span>SecretDexx</span>
               <span className="text-xs px-3 py-1 rounded-full bg-emerald-500 text-white font-extrabold shadow-sm">
                 🎮 Roblox Script Hub
               </span>
             </h1>
 
-            <p className="text-sm sm:text-base text-claySlate-700 font-semibold leading-relaxed">
+            <p className="text-sm sm:text-base text-claySlate-700 dark:text-slate-200 font-semibold leading-relaxed">
               <strong>Discover and explore the best scripts for your favorite games.</strong>
             </p>
 
-            <p className="text-xs sm:text-sm text-claySlate-500 font-medium leading-relaxed">
+            <p className="text-xs sm:text-sm text-claySlate-500 dark:text-slate-400 font-medium leading-relaxed">
               Direktori script game Roblox terlengkap dan selalu terupdate. Menyediakan ribuan script aktif, terverifikasi, keyless, dan aman yang dapat langsung digunakan pada executor favorit Anda.
             </p>
 
@@ -115,7 +115,7 @@ export default function SecretDexxPortal({ showToast }) {
                 href="https://secretdexx.netlify.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="clay-button py-3.5 px-5 text-xs font-black bg-white/90 hover:bg-white text-claySlate-800 border border-claySlate-200 flex items-center gap-2 shadow-sm"
+                className="clay-button py-3.5 px-5 text-xs font-black bg-white/90 dark:bg-[#131B2E] hover:bg-white text-claySlate-800 dark:text-white border border-claySlate-200 dark:border-white/10 flex items-center gap-2 shadow-sm"
               >
                 <Search className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Cari 500+ Script Online</span>
@@ -125,33 +125,33 @@ export default function SecretDexxPortal({ showToast }) {
 
           {/* Quick Stats Pillar */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-3.5 w-full lg:w-72">
-            <div className="clay-card p-4 bg-white/95 border border-emerald-100 flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-700 font-black">
+            <div className="clay-card p-4 bg-white/95 dark:bg-[#131B2E] border border-emerald-100 dark:border-white/10 flex items-center gap-3">
+              <div className="w-11 h-11 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 flex items-center justify-center text-emerald-700 dark:text-emerald-400 font-black">
                 <Code2 className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-lg font-black text-claySlate-900">500+</div>
-                <div className="text-[11px] font-bold text-claySlate-500">Scripts Available</div>
+                <div className="text-lg font-black text-claySlate-900 dark:text-white">500+</div>
+                <div className="text-[11px] font-bold text-claySlate-500 dark:text-slate-400">Scripts Available</div>
               </div>
             </div>
 
-            <div className="clay-card p-4 bg-white/95 border border-emerald-100 flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-teal-100 flex items-center justify-center text-teal-700 font-black">
+            <div className="clay-card p-4 bg-white/95 dark:bg-[#131B2E] border border-emerald-100 dark:border-white/10 flex items-center gap-3">
+              <div className="w-11 h-11 rounded-2xl bg-teal-100 dark:bg-teal-950/60 flex items-center justify-center text-teal-700 dark:text-teal-400 font-black">
                 <Users className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-lg font-black text-claySlate-900">10k+</div>
-                <div className="text-[11px] font-bold text-claySlate-500">Active Users</div>
+                <div className="text-lg font-black text-claySlate-900 dark:text-white">10k+</div>
+                <div className="text-[11px] font-bold text-claySlate-500 dark:text-slate-400">Active Users</div>
               </div>
             </div>
 
-            <div className="clay-card p-4 bg-white/95 border border-emerald-100 flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-cyan-100 flex items-center justify-center text-cyan-700 font-black">
+            <div className="clay-card p-4 bg-white/95 dark:bg-[#131B2E] border border-emerald-100 dark:border-white/10 flex items-center gap-3">
+              <div className="w-11 h-11 rounded-2xl bg-cyan-100 dark:bg-cyan-950/60 flex items-center justify-center text-cyan-700 dark:text-cyan-400 font-black">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-lg font-black text-claySlate-900">Trusted</div>
-                <div className="text-[11px] font-bold text-claySlate-500">Reliable & Keyless</div>
+                <div className="text-lg font-black text-claySlate-900 dark:text-white">Trusted</div>
+                <div className="text-[11px] font-bold text-claySlate-500 dark:text-slate-400">Reliable & Keyless</div>
               </div>
             </div>
           </div>
@@ -163,11 +163,11 @@ export default function SecretDexxPortal({ showToast }) {
       <div className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-black text-claySlate-900 tracking-tight flex items-center gap-2">
+            <h2 className="text-xl sm:text-2xl font-black text-claySlate-900 dark:text-white tracking-tight flex items-center gap-2">
               <Flame className="w-5 h-5 text-orange-500" />
               <span>Koleksi Script Game Populer</span>
             </h2>
-            <p className="text-xs sm:text-sm text-claySlate-500 font-medium mt-0.5">
+            <p className="text-xs sm:text-sm text-claySlate-500 dark:text-slate-400 font-medium mt-0.5">
               Pratinjau script game Roblox terpopuler dari SecretDexx yang siap disalin.
             </p>
           </div>
@@ -180,7 +180,7 @@ export default function SecretDexxPortal({ showToast }) {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Filter game (Blox Fruits, Da Hood...)"
-                className="w-full clay-input-field text-xs py-2.5 pl-9 pr-3"
+                className="w-full clay-input-field text-xs py-2.5 pl-9 pr-3 text-claySlate-800 dark:text-white"
               />
               <Search className="w-4 h-4 text-claySlate-400 absolute left-3 top-3" />
             </div>
@@ -192,24 +192,24 @@ export default function SecretDexxPortal({ showToast }) {
           {filteredGames.map((game, i) => (
             <div
               key={i}
-              className="clay-card p-6 sm:p-7 border border-claySlate-200/90 hover:border-emerald-300 transition-all flex flex-col justify-between group"
+              className="clay-card p-6 sm:p-7 border border-claySlate-200/90 dark:border-white/10 hover:border-emerald-300 transition-all flex flex-col justify-between group"
             >
               <div className="space-y-3">
                 <div className="flex items-start justify-between gap-2">
                   <div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-700 bg-emerald-100/70 px-2.5 py-0.5 rounded-full">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full">
                       {game.category}
                     </span>
-                    <h3 className="text-xl font-black text-claySlate-900 mt-1.5 group-hover:text-emerald-700 transition-colors">
+                    <h3 className="text-xl font-black text-claySlate-900 dark:text-white mt-1.5 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                       {game.title}
                     </h3>
                   </div>
-                  <span className="clay-badge text-[10px] font-black bg-white text-claySlate-700 shadow-sm">
+                  <span className="clay-badge text-[10px] font-black bg-white dark:bg-[#0B1120] text-claySlate-700 dark:text-slate-300 shadow-sm border border-transparent dark:border-white/5">
                     {game.badge}
                   </span>
                 </div>
 
-                <p className="text-xs text-claySlate-600 font-medium leading-relaxed">
+                <p className="text-xs text-claySlate-600 dark:text-slate-300 font-medium leading-relaxed">
                   {game.desc}
                 </p>
 
@@ -238,15 +238,15 @@ export default function SecretDexxPortal({ showToast }) {
                 </div>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-claySlate-100 flex items-center justify-between">
-                <span className="text-xs font-bold text-claySlate-400">
+              <div className="mt-5 pt-3 border-t border-claySlate-100 dark:border-white/10 flex items-center justify-between">
+                <span className="text-xs font-bold text-claySlate-400 dark:text-slate-400">
                   {game.scriptsCount}
                 </span>
                 <a
                   href="https://secretdexx.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-black text-emerald-700 hover:text-emerald-800 hover:underline"
+                  className="inline-flex items-center gap-1.5 text-xs font-black text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 hover:underline"
                 >
                   <span>Buka di SecretDexx</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -258,45 +258,45 @@ export default function SecretDexxPortal({ showToast }) {
       </div>
 
       {/* Feature Highlights of SecretDexx */}
-      <div className="clay-card p-6 sm:p-8 border border-claySlate-200">
-        <h3 className="text-lg font-black text-claySlate-900 mb-6 text-center">
+      <div className="clay-card p-6 sm:p-8 border border-claySlate-200 dark:border-white/10">
+        <h3 className="text-lg font-black text-claySlate-900 dark:text-white mb-6 text-center">
           Mengapa Menggunakan SecretDexx?
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="text-center space-y-2 p-4 rounded-2xl bg-white/60 border border-claySlate-100">
-            <div className="w-12 h-12 mx-auto rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black">
+          <div className="text-center space-y-2 p-4 rounded-2xl bg-white/60 dark:bg-slate-800/40 border border-claySlate-100 dark:border-white/5">
+            <div className="w-12 h-12 mx-auto rounded-2xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-black">
               <Zap className="w-6 h-6" />
             </div>
-            <h4 className="text-sm font-black text-claySlate-800">Cepat & Keyless</h4>
-            <p className="text-xs text-claySlate-500 leading-relaxed font-medium">
+            <h4 className="text-sm font-black text-claySlate-800 dark:text-white">Cepat & Keyless</h4>
+            <p className="text-xs text-claySlate-500 dark:text-slate-400 leading-relaxed font-medium">
               Banyak pilihan script tanpa sistem checkpoint key yang rumit. Langsung salin dan eksekusi.
             </p>
           </div>
 
-          <div className="text-center space-y-2 p-4 rounded-2xl bg-white/60 border border-claySlate-100">
-            <div className="w-12 h-12 mx-auto rounded-2xl bg-teal-100 text-teal-700 flex items-center justify-center font-black">
+          <div className="text-center space-y-2 p-4 rounded-2xl bg-white/60 dark:bg-slate-800/40 border border-claySlate-100 dark:border-white/5">
+            <div className="w-12 h-12 mx-auto rounded-2xl bg-teal-100 dark:bg-teal-950/80 text-teal-700 dark:text-teal-300 flex items-center justify-center font-black">
               <ShieldCheck className="w-6 h-6" />
             </div>
-            <h4 className="text-sm font-black text-claySlate-800">Status Terverifikasi</h4>
-            <p className="text-xs text-claySlate-500 leading-relaxed font-medium">
+            <h4 className="text-sm font-black text-claySlate-800 dark:text-white">Status Terverifikasi</h4>
+            <p className="text-xs text-claySlate-500 dark:text-slate-400 leading-relaxed font-medium">
               Setiap script dilengkapi tag status <em>Verified</em>, <em>Active</em>, atau <em>Patched</em> agar Anda terhindar dari script usang.
             </p>
           </div>
 
-          <div className="text-center space-y-2 p-4 rounded-2xl bg-white/60 border border-claySlate-100">
-            <div className="w-12 h-12 mx-auto rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-black">
+          <div className="text-center space-y-2 p-4 rounded-2xl bg-white/60 dark:bg-slate-800/40 border border-claySlate-100 dark:border-white/5">
+            <div className="w-12 h-12 mx-auto rounded-2xl bg-cyan-100 dark:bg-cyan-950/80 text-cyan-700 dark:text-cyan-300 flex items-center justify-center font-black">
               <Layers className="w-6 h-6" />
             </div>
-            <h4 className="text-sm font-black text-claySlate-800">Integrasi API Luas</h4>
-            <p className="text-xs text-claySlate-500 leading-relaxed font-medium">
+            <h4 className="text-sm font-black text-claySlate-800 dark:text-white">Integrasi API Luas</h4>
+            <p className="text-xs text-claySlate-500 dark:text-slate-400 leading-relaxed font-medium">
               Terhubung langsung dengan database ScriptBlox API untuk memastikan ketersediaan ribuan judul game Roblox.
             </p>
           </div>
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-8 pt-6 border-t border-claySlate-200 text-center">
+        <div className="mt-8 pt-6 border-t border-claySlate-200 dark:border-white/10 text-center">
           <a
             href="https://secretdexx.netlify.app/"
             target="_blank"

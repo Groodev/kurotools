@@ -15,8 +15,10 @@ import Toast from './components/common/Toast.jsx';
 import ScrollProgressBar from './components/common/ScrollProgressBar.jsx';
 import ScrollToTop from './components/common/ScrollToTop.jsx';
 import ScrollReveal from './components/common/ScrollReveal.jsx';
+import { ThemeProvider } from './context/ThemeContext.jsx';
+import { LanguageProvider } from './context/LanguageContext.jsx';
 
-export default function App() {
+function AppContent() {
   const [activeTab, setActiveTab] = useState('home');
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [toast, setToast] = useState({ message: '', type: 'success' });
@@ -148,6 +150,16 @@ export default function App() {
         onClose={closeToast} 
       />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <LanguageProvider>
+        <AppContent />
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
 

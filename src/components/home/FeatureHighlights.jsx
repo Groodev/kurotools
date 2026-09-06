@@ -34,10 +34,10 @@ export default function FeatureHighlights() {
     <section className="py-12 px-4 max-w-7xl mx-auto">
       <ScrollReveal animation="fade-up">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-2xl sm:text-3xl font-black text-claySlate-900 tracking-tight mb-3">
+          <h2 className="text-2xl sm:text-3xl font-black text-claySlate-900 dark:text-white tracking-tight mb-3">
             Kenapa Memilih <span className="text-clayPurple">KuroTools</span>?
           </h2>
-          <p className="text-sm text-claySlate-500 font-medium">
+          <p className="text-sm text-claySlate-500 dark:text-slate-400 font-medium">
             Dirancang khusus untuk menghadirkan kenyamanan dan kecepatan dalam rutinitas digital harian Anda.
           </p>
         </div>
@@ -59,18 +59,18 @@ export default function FeatureHighlights() {
                   {item.icon}
                 </div>
 
-                <h3 className="text-xl font-black text-claySlate-800 mb-3 group-hover:text-clayPurple transition-colors">
+                <h3 className="text-xl font-black text-claySlate-800 dark:text-white mb-3 group-hover:text-clayPurple transition-colors">
                   {item.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-claySlate-600 leading-relaxed mb-6 font-medium">
+                <p className="text-xs sm:text-sm text-claySlate-600 dark:text-slate-300 leading-relaxed mb-6 font-medium">
                   {item.desc}
                 </p>
               </div>
 
-              <div className="space-y-2 pt-4 border-t border-claySlate-100">
+              <div className="space-y-2 pt-4 border-t border-claySlate-100 dark:border-white/10">
                 {item.highlights.map((h, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs font-bold text-claySlate-700">
+                  <div key={i} className="flex items-center gap-2 text-xs font-bold text-claySlate-700 dark:text-slate-300">
                     <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
                     <span>{h}</span>
                   </div>

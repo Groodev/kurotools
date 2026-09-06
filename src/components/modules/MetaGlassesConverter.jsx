@@ -347,27 +347,27 @@ export default function MetaGlassesConverter({ showToast }) {
   return (
     <div className="space-y-8 max-w-6xl mx-auto">
       {/* Module Title Header */}
-      <div className="clay-card p-6 sm:p-8 bg-gradient-to-r from-purple-50/60 via-indigo-50/40 to-cyan-50/60 border border-purple-200/50">
+      <div className="clay-card p-6 sm:p-8 bg-gradient-to-r from-purple-50/60 via-indigo-50/40 to-cyan-50/60 dark:from-purple-950/40 dark:via-slate-900/50 dark:to-cyan-950/40 border border-purple-200/50 dark:border-white/10">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-clayPurple-light text-clayPurple-dark text-xs font-black">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-clayPurple-light dark:bg-purple-950 text-clayPurple-dark dark:text-purple-300 text-xs font-black">
               <Glasses className="w-3.5 h-3.5 text-clayPurple" />
               <span>Instagram Story 3D Motion EIF</span>
             </div>
-            <h1 className="text-2xl sm:text-4xl font-black text-claySlate-900 tracking-tight flex items-center gap-3">
+            <h1 className="text-2xl sm:text-4xl font-black text-claySlate-900 dark:text-white tracking-tight flex items-center gap-3">
               <span>Image to Meta Glasses EIF</span>
-              <span className="text-xs px-2.5 py-1 rounded-full bg-cyan-100 text-cyan-800 font-extrabold border border-cyan-300">
+              <span className="text-xs px-2.5 py-1 rounded-full bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 font-extrabold border border-cyan-300 dark:border-cyan-800">
                 👓 Ray-Ban Meta
               </span>
             </h1>
-            <p className="text-xs sm:text-sm text-claySlate-600 font-medium max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-claySlate-600 dark:text-slate-300 font-medium max-w-2xl leading-relaxed">
               Suntikkan metadata EXIF otentik <strong>Ray-Ban Meta Smart Glasses</strong> ke dalam foto apapun. 
               Saat diunggah ke Instagram Story, Instagram akan mengenali metadata kamera kacamata pintar ini dan mengaktifkan fitur <strong>Glasses Tools</strong> interaktif dengan efek gerak 3D!
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
-            <div className="clay-badge bg-white/90 text-clayPurple-dark text-xs font-black py-2 px-3 border border-purple-100 flex items-center gap-1.5 shadow-sm">
+            <div className="clay-badge bg-white/90 dark:bg-[#131B2E] text-clayPurple-dark dark:text-purple-300 text-xs font-black py-2 px-3 border border-purple-100 dark:border-white/10 flex items-center gap-1.5 shadow-sm">
               <ShieldCheck className="w-4 h-4 text-emerald-500" />
               <span>100% Client-Side (Privat)</span>
             </div>
@@ -382,9 +382,9 @@ export default function MetaGlassesConverter({ showToast }) {
         <div className="lg:col-span-7 space-y-6">
           
           {/* 1. Upload Dropzone */}
-          <div className="clay-card p-6 sm:p-7 border border-claySlate-200">
+          <div className="clay-card p-6 sm:p-7 border border-claySlate-200 dark:border-white/10">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-base font-extrabold text-claySlate-800 flex items-center gap-2">
+              <h2 className="text-base font-extrabold text-claySlate-800 dark:text-white flex items-center gap-2">
                 <UploadCloud className="w-5 h-5 text-clayPurple" />
                 <span>1. Unggah Foto Target</span>
               </h2>
@@ -408,14 +408,14 @@ export default function MetaGlassesConverter({ showToast }) {
               }}
               className="border-2 border-dashed border-clayPurple/40 hover:border-clayPurple bg-purple-50/20 hover:bg-purple-50/50 rounded-2xl p-8 text-center cursor-pointer transition-all flex flex-col items-center justify-center gap-3 group"
             >
-              <div className="w-16 h-16 rounded-3xl bg-white shadow-clay-card flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 rounded-3xl bg-white dark:bg-slate-800 shadow-clay-card flex items-center justify-center group-hover:scale-110 transition-transform">
                 <UploadCloud className="w-8 h-8 text-clayPurple" />
               </div>
               <div className="space-y-1">
-                <p className="text-sm font-black text-claySlate-800 group-hover:text-clayPurple transition-colors">
+                <p className="text-sm font-black text-claySlate-800 dark:text-white group-hover:text-clayPurple transition-colors">
                   {selectedFile ? selectedFile.name : 'Klik untuk memilih atau seret foto ke sini'}
                 </p>
-                <p className="text-xs font-semibold text-claySlate-400">
+                <p className="text-xs font-semibold text-claySlate-400 dark:text-slate-400">
                   Mendukung format JPG, JPEG, PNG, WEBP, atau HEIC (Otomatis dikonversi)
                 </p>
               </div>
@@ -432,14 +432,14 @@ export default function MetaGlassesConverter({ showToast }) {
             </div>
 
             {selectedFile && (
-              <div className="mt-4 p-3.5 rounded-xl bg-white border border-claySlate-200 flex items-center justify-between text-xs">
+              <div className="mt-4 p-3.5 rounded-xl bg-white dark:bg-slate-800 border border-claySlate-200 dark:border-white/10 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2.5 truncate">
-                  <span className="px-2 py-0.5 rounded-md bg-clayPurple-light text-clayPurple-dark font-black text-[10px]">
+                  <span className="px-2 py-0.5 rounded-md bg-clayPurple-light dark:bg-purple-950 text-clayPurple-dark dark:text-purple-300 font-black text-[10px]">
                     FILE
                   </span>
-                  <span className="font-bold text-claySlate-700 truncate">{selectedFile.name}</span>
+                  <span className="font-bold text-claySlate-700 dark:text-slate-200 truncate">{selectedFile.name}</span>
                 </div>
-                <span className="font-mono text-claySlate-400 ml-3 whitespace-nowrap">
+                <span className="font-mono text-claySlate-400 dark:text-slate-400 ml-3 whitespace-nowrap">
                   {(selectedFile.size / 1024).toFixed(1)} KB
                 </span>
               </div>
@@ -447,27 +447,27 @@ export default function MetaGlassesConverter({ showToast }) {
           </div>
 
           {/* 2. Metadata Settings */}
-          <div className="clay-card p-6 sm:p-7 border border-claySlate-200 space-y-5">
-            <h2 className="text-base font-extrabold text-claySlate-800 flex items-center gap-2">
+          <div className="clay-card p-6 sm:p-7 border border-claySlate-200 dark:border-white/10 space-y-5">
+            <h2 className="text-base font-extrabold text-claySlate-800 dark:text-white flex items-center gap-2">
               <Sliders className="w-5 h-5 text-clayPurple" />
               <span>2. Konfigurasi Metadata Ray-Ban Meta</span>
             </h2>
 
             {/* Template Presets */}
             <div>
-              <label className="block text-xs font-bold text-claySlate-500 uppercase tracking-wider mb-2.5">
+              <label className="block text-xs font-bold text-claySlate-500 dark:text-slate-400 uppercase tracking-wider mb-2.5">
                 Pilih Model Kacamata
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <label 
                   className={`p-3.5 rounded-2xl border cursor-pointer transition-all flex flex-col justify-between ${
                     preset === 'rayban2' 
-                      ? 'bg-clayPurple-light/40 border-clayPurple shadow-sm' 
-                      : 'bg-white border-claySlate-200 hover:border-claySlate-300'
+                      ? 'bg-clayPurple-light/40 dark:bg-purple-950/60 border-clayPurple shadow-sm' 
+                      : 'bg-white dark:bg-slate-800/80 border-claySlate-200 dark:border-white/10 hover:border-claySlate-300'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-black text-claySlate-800">Ray-Ban Meta 2</span>
+                    <span className="text-xs font-black text-claySlate-800 dark:text-white">Ray-Ban Meta 2</span>
                     <input 
                       type="radio" 
                       name="preset" 
@@ -477,18 +477,18 @@ export default function MetaGlassesConverter({ showToast }) {
                       className="accent-purple-600" 
                     />
                   </div>
-                  <span className="text-[10px] text-claySlate-500 font-medium">Gen 2 (Rekomendasi IG)</span>
+                  <span className="text-[10px] text-claySlate-500 dark:text-slate-400 font-medium">Gen 2 (Rekomendasi IG)</span>
                 </label>
 
                 <label 
                   className={`p-3.5 rounded-2xl border cursor-pointer transition-all flex flex-col justify-between ${
                     preset === 'stories1' 
-                      ? 'bg-clayPurple-light/40 border-clayPurple shadow-sm' 
-                      : 'bg-white border-claySlate-200 hover:border-claySlate-300'
+                      ? 'bg-clayPurple-light/40 dark:bg-purple-950/60 border-clayPurple shadow-sm' 
+                      : 'bg-white dark:bg-slate-800/80 border-claySlate-200 dark:border-white/10 hover:border-claySlate-300'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-black text-claySlate-800">Ray-Ban Stories</span>
+                    <span className="text-xs font-black text-claySlate-800 dark:text-white">Ray-Ban Stories</span>
                     <input 
                       type="radio" 
                       name="preset" 
@@ -498,18 +498,18 @@ export default function MetaGlassesConverter({ showToast }) {
                       className="accent-purple-600" 
                     />
                   </div>
-                  <span className="text-[10px] text-claySlate-500 font-medium">Gen 1 Klasik</span>
+                  <span className="text-[10px] text-claySlate-500 dark:text-slate-400 font-medium">Gen 1 Klasik</span>
                 </label>
 
                 <label 
                   className={`p-3.5 rounded-2xl border cursor-pointer transition-all flex flex-col justify-between ${
                     preset === 'custom' 
-                      ? 'bg-clayPurple-light/40 border-clayPurple shadow-sm' 
-                      : 'bg-white border-claySlate-200 hover:border-claySlate-300'
+                      ? 'bg-clayPurple-light/40 dark:bg-purple-950/60 border-clayPurple shadow-sm' 
+                      : 'bg-white dark:bg-slate-800/80 border-claySlate-200 dark:border-white/10 hover:border-claySlate-300'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-black text-claySlate-800">Kustom</span>
+                    <span className="text-xs font-black text-claySlate-800 dark:text-white">Kustom</span>
                     <input 
                       type="radio" 
                       name="preset" 
@@ -519,7 +519,7 @@ export default function MetaGlassesConverter({ showToast }) {
                       className="accent-purple-600" 
                     />
                   </div>
-                  <span className="text-[10px] text-claySlate-500 font-medium">Atur Nama Sendiri</span>
+                  <span className="text-[10px] text-claySlate-500 dark:text-slate-400 font-medium">Atur Nama Sendiri</span>
                 </label>
               </div>
             </div>
@@ -745,15 +745,15 @@ export default function MetaGlassesConverter({ showToast }) {
             </div>
 
             <div className="space-y-2 text-xs font-mono">
-              <div className="flex justify-between py-1 border-b border-claySlate-100">
-                <span className="text-claySlate-500">Make:</span>
-                <span className="font-bold text-claySlate-800">
+              <div className="flex justify-between py-1 border-b border-claySlate-100 dark:border-white/10">
+                <span className="text-claySlate-500 dark:text-slate-400">Make:</span>
+                <span className="font-bold text-claySlate-800 dark:text-white">
                   {preset === 'custom' ? customMake || 'Meta AI' : 'Meta AI'}
                 </span>
               </div>
-              <div className="flex justify-between py-1 border-b border-claySlate-100">
-                <span className="text-claySlate-500">Model:</span>
-                <span className="font-bold text-clayPurple">
+              <div className="flex justify-between py-1 border-b border-claySlate-100 dark:border-white/10">
+                <span className="text-claySlate-500 dark:text-slate-400">Model:</span>
+                <span className="font-bold text-clayPurple dark:text-purple-300">
                   {preset === 'custom' 
                     ? customModel || 'Ray-Ban Meta Smart Glasses 2' 
                     : preset === 'stories1' 
@@ -761,31 +761,31 @@ export default function MetaGlassesConverter({ showToast }) {
                     : 'Ray-Ban Meta Smart Glasses 2'}
                 </span>
               </div>
-              <div className="flex justify-between py-1 border-b border-claySlate-100">
-                <span className="text-claySlate-500">Software:</span>
-                <span className="font-bold text-claySlate-800">Meta View App</span>
+              <div className="flex justify-between py-1 border-b border-claySlate-100 dark:border-white/10">
+                <span className="text-claySlate-500 dark:text-slate-400">Software:</span>
+                <span className="font-bold text-claySlate-800 dark:text-white">Meta View App</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-claySlate-100">
-                <span className="text-claySlate-500">ExifVersion:</span>
-                <span className="font-bold text-claySlate-800">0232</span>
+              <div className="flex justify-between py-1 border-b border-claySlate-100 dark:border-white/10">
+                <span className="text-claySlate-500 dark:text-slate-400">ExifVersion:</span>
+                <span className="font-bold text-claySlate-800 dark:text-white">0232</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-claySlate-100">
-                <span className="text-claySlate-500">Exposure / FNumber:</span>
-                <span className="font-bold text-claySlate-800">1/120s • f/2.2</span>
+              <div className="flex justify-between py-1 border-b border-claySlate-100 dark:border-white/10">
+                <span className="text-claySlate-500 dark:text-slate-400">Exposure / FNumber:</span>
+                <span className="font-bold text-claySlate-800 dark:text-white">1/120s • f/2.2</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-claySlate-100">
-                <span className="text-claySlate-500">ISO / FocalLength:</span>
-                <span className="font-bold text-claySlate-800">ISO 100 • 2.8mm</span>
+              <div className="flex justify-between py-1 border-b border-claySlate-100 dark:border-white/10">
+                <span className="text-claySlate-500 dark:text-slate-400">ISO / FocalLength:</span>
+                <span className="font-bold text-claySlate-800 dark:text-white">ISO 100 • 2.8mm</span>
               </div>
               <div className="flex justify-between py-1">
-                <span className="text-claySlate-500">ColorSpace:</span>
-                <span className="font-bold text-claySlate-800">sRGB</span>
+                <span className="text-claySlate-500 dark:text-slate-400">ColorSpace:</span>
+                <span className="font-bold text-claySlate-800 dark:text-white">sRGB</span>
               </div>
             </div>
           </div>
 
           {/* Quick Guide Accordion */}
-          <div className="clay-card p-5 border border-purple-100 bg-purple-50/30">
+          <div className="clay-card p-5 border border-purple-100 dark:border-purple-900/40 bg-purple-50/30 dark:bg-purple-950/20">
             <button
               type="button"
               onClick={() => setFaqOpen(!faqOpen)}
@@ -793,17 +793,17 @@ export default function MetaGlassesConverter({ showToast }) {
             >
               <div className="flex items-center gap-2">
                 <HelpCircle className="w-4 h-4 text-clayPurple flex-shrink-0" />
-                <span className="text-xs font-black text-claySlate-800">
+                <span className="text-xs font-black text-claySlate-800 dark:text-white">
                   Cara Memakai Hasil Injeksi di Instagram Story
                 </span>
               </div>
-              <span className="text-xs font-bold text-clayPurple">
+              <span className="text-xs font-bold text-clayPurple dark:text-purple-300">
                 {faqOpen ? 'Tutup' : 'Lihat'}
               </span>
             </button>
 
             {faqOpen && (
-              <div className="mt-4 pt-3 border-t border-purple-200/50 space-y-2 text-xs text-claySlate-600 leading-relaxed font-medium">
+              <div className="mt-4 pt-3 border-t border-purple-200/50 dark:border-purple-900/40 space-y-2 text-xs text-claySlate-600 dark:text-slate-300 leading-relaxed font-medium">
                 <p>
                   <strong>1. Unduh Foto:</strong> Klik tombol <em>Download Foto</em> atau gunakan <em>Share ke Instagram Story</em>.
                 </p>

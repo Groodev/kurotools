@@ -16,8 +16,10 @@ import {
   ExternalLink
 } from 'lucide-react';
 import ScrollReveal from '../common/ScrollReveal.jsx';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
 export default function ToolsCatalogue({ setActiveTab }) {
+  const { t } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -164,41 +166,41 @@ export default function ToolsCatalogue({ setActiveTab }) {
       <ScrollReveal animation="fade-up">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-clayPurple-light/60 text-clayPurple-dark text-xs font-black mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-clayPurple-light/60 dark:bg-purple-950/70 text-clayPurple-dark dark:text-purple-300 text-xs font-black mb-3">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Katalog Lengkap Modul</span>
+              <span>{t('catBadge')}</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-claySlate-900 tracking-tight">
-              Pilih Alat yang Anda Butuhkan
+            <h2 className="text-3xl sm:text-4xl font-black text-claySlate-900 dark:text-white tracking-tight">
+              {t('catTitle')}
             </h2>
-            <p className="text-sm text-claySlate-500 font-medium mt-1">
-              Klik pada kartu modul untuk langsung membuka dan mulai menggunakan fiturnya.
+            <p className="text-sm text-claySlate-500 dark:text-slate-400 font-medium mt-1">
+              {t('catDesc')}
             </p>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-bold text-claySlate-500">
-            <span>{fullCatalog.length} Modul Tersedia</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-claySlate-300"></span>
-            <span className="text-emerald-600 font-extrabold">Semua Modul Aktif</span>
+          <div className="flex items-center gap-2 text-xs font-bold text-claySlate-500 dark:text-slate-400">
+            <span>{fullCatalog.length} {t('catModulesAvailable')}</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-claySlate-300 dark:bg-slate-700"></span>
+            <span className="text-emerald-600 dark:text-emerald-400 font-extrabold">{t('catAllActive')}</span>
           </div>
         </div>
 
         {/* Search Bar (Directly below "Pilih Alat yang Anda Butuhkan") */}
         <div className="mb-10 max-w-2xl">
-          <div className="relative flex items-center bg-white/95 rounded-2xl border border-claySlate-200/80 shadow-clay-card px-4 py-3 focus-within:border-clayPurple focus-within:ring-2 focus-within:ring-clayPurple/20 transition-all">
+          <div className="relative flex items-center bg-white/95 dark:bg-[#131B2E] rounded-2xl border border-claySlate-200/80 dark:border-white/10 shadow-clay-card px-4 py-3 focus-within:border-clayPurple focus-within:ring-2 focus-within:ring-clayPurple/20 transition-all">
             <Search className="w-5 h-5 text-claySlate-400 flex-shrink-0 mr-3" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Cari alat yang Anda butuhkan (cth: meta glasses, roblox, shortener, barcode)..."
-              className="w-full bg-transparent text-sm font-bold text-claySlate-800 placeholder-claySlate-400 focus:outline-none"
+              placeholder={t('catSearchPlaceholder')}
+              className="w-full bg-transparent text-sm font-bold text-claySlate-800 dark:text-white placeholder-claySlate-400 focus:outline-none"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="p-1 rounded-full hover:bg-claySlate-100 text-claySlate-400 hover:text-claySlate-600 transition-colors ml-2"
+                className="p-1 rounded-full hover:bg-claySlate-100 dark:hover:bg-slate-800 text-claySlate-400 hover:text-claySlate-600 transition-colors ml-2"
                 title="Hapus pencarian"
               >
                 <X className="w-4 h-4" />
@@ -207,16 +209,16 @@ export default function ToolsCatalogue({ setActiveTab }) {
           </div>
 
           {searchQuery && (
-            <div className="flex items-center justify-between text-xs font-semibold text-claySlate-500 mt-2 px-2">
+            <div className="flex items-center justify-between text-xs font-semibold text-claySlate-500 dark:text-slate-400 mt-2 px-2">
               <span>
-                Menampilkan <strong className="text-clayPurple">{filteredCatalog.length}</strong> alat cocok untuk "{searchQuery}"
+                {t('catShowing')} <strong className="text-clayPurple">{filteredCatalog.length}</strong> {t('catMatchesFor')} "{searchQuery}"
               </span>
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
                 className="text-clayPurple hover:underline font-bold"
               >
-                Reset
+                {t('catReset')}
               </button>
             </div>
           )}
@@ -240,34 +242,34 @@ export default function ToolsCatalogue({ setActiveTab }) {
                 <div>
                   {/* Card Top: Icon & Tag */}
                   <div className="flex items-start justify-between gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-3xl bg-white shadow-clay-pill flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <div className="w-16 h-16 rounded-3xl bg-white dark:bg-[#0B1120] shadow-clay-pill flex items-center justify-center group-hover:scale-105 transition-transform border border-claySlate-100 dark:border-white/5">
                       {tool.icon}
                     </div>
                     <div className="flex flex-col items-end gap-1.5">
-                      <span className="clay-badge text-[10px] font-black bg-white text-claySlate-700 shadow-sm">
+                      <span className="clay-badge text-[10px] font-black bg-white dark:bg-[#0B1120] text-claySlate-700 dark:text-slate-300 shadow-sm border border-claySlate-100 dark:border-white/5">
                         {tool.tag}
                       </span>
-                      <span className={`text-[10px] font-extrabold px-2.5 py-0.5 rounded-full ${tool.colorBadge}`}>
+                      <span className={`text-[10px] font-extrabold px-2.5 py-0.5 rounded-full ${tool.colorBadge} dark:bg-opacity-20 dark:border dark:border-white/10`}>
                         {tool.category}
                       </span>
                     </div>
                   </div>
 
                   {/* Title & Desc */}
-                  <h3 className="text-2xl font-black text-claySlate-900 mb-2 group-hover:text-clayPurple transition-colors flex items-center gap-2">
+                  <h3 className="text-2xl font-black text-claySlate-900 dark:text-white mb-2 group-hover:text-clayPurple transition-colors flex items-center gap-2">
                     <span>{tool.title}</span>
                     {tool.id === 'secretdexx' && (
                       <ExternalLink className="w-4 h-4 text-emerald-600 opacity-60 group-hover:opacity-100 transition-opacity" />
                     )}
                   </h3>
-                  <p className="text-xs sm:text-sm text-claySlate-600 font-medium leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-claySlate-600 dark:text-slate-300 font-medium leading-relaxed mb-6">
                     {tool.desc}
                   </p>
 
                   {/* Key Features Bullet List */}
-                  <div className="space-y-2 mb-8 bg-claySlate-50/80 p-4 rounded-2xl border border-claySlate-100">
+                  <div className="space-y-2 mb-8 bg-claySlate-50/80 dark:bg-[#0B1120]/80 p-4 rounded-2xl border border-claySlate-100 dark:border-white/5">
                     {tool.features.map((feat, i) => (
-                      <div key={i} className="flex items-center gap-2.5 text-xs font-semibold text-claySlate-700">
+                      <div key={i} className="flex items-center gap-2.5 text-xs font-semibold text-claySlate-700 dark:text-slate-300">
                         <CheckCircle2 className="w-3.5 h-3.5 text-clayPurple flex-shrink-0" />
                         <span>{feat}</span>
                       </div>
@@ -281,7 +283,7 @@ export default function ToolsCatalogue({ setActiveTab }) {
                     type="button"
                     className={`w-full clay-button ${tool.btnClass} py-3.5 text-xs sm:text-sm font-black flex items-center justify-center gap-2`}
                   >
-                    <span>Buka Modul {tool.title}</span>
+                    <span>{t('catOpenModule')} {tool.title}</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </button>
                 </div>
@@ -292,14 +294,14 @@ export default function ToolsCatalogue({ setActiveTab }) {
         </div>
       ) : (
         /* Empty Search Results State */
-        <div className="clay-card p-12 text-center max-w-lg mx-auto space-y-4 border border-claySlate-200">
-          <div className="w-16 h-16 mx-auto rounded-3xl bg-claySlate-100 flex items-center justify-center text-claySlate-400">
+        <div className="clay-card p-12 text-center max-w-lg mx-auto space-y-4 border border-claySlate-200 dark:border-white/10">
+          <div className="w-16 h-16 mx-auto rounded-3xl bg-claySlate-100 dark:bg-slate-800 flex items-center justify-center text-claySlate-400">
             <Search className="w-8 h-8" />
           </div>
           <div className="space-y-1">
-            <h3 className="text-lg font-black text-claySlate-800">Tidak ada alat yang cocok</h3>
-            <p className="text-xs text-claySlate-500">
-              Tidak ditemukan alat dengan kata kunci "{searchQuery}". Coba kata kunci lain atau reset pencarian.
+            <h3 className="text-lg font-black text-claySlate-800 dark:text-white">{t('catNoMatch')}</h3>
+            <p className="text-xs text-claySlate-500 dark:text-slate-400">
+              {t('catNoMatchDesc')}
             </p>
           </div>
           <button
@@ -307,7 +309,7 @@ export default function ToolsCatalogue({ setActiveTab }) {
             onClick={() => setSearchQuery('')}
             className="clay-button clay-button-purple py-2.5 px-5 text-xs font-bold"
           >
-            Tampilkan Semua Alat
+            {t('catShowAll')}
           </button>
         </div>
       )}
@@ -318,13 +320,13 @@ export default function ToolsCatalogue({ setActiveTab }) {
           <button
             type="button"
             onClick={() => setIsExpanded(!isExpanded)}
-            className="inline-flex items-center gap-2.5 clay-button py-4 px-8 text-xs sm:text-sm font-black text-claySlate-700 bg-white hover:bg-claySlate-50 border border-claySlate-200/90 shadow-clay-card group transition-all"
+            className="inline-flex items-center gap-2.5 clay-button py-4 px-8 text-xs sm:text-sm font-black text-claySlate-700 dark:text-slate-200 bg-white dark:bg-[#131B2E] hover:bg-claySlate-50 dark:hover:bg-slate-800 border border-claySlate-200/90 dark:border-white/10 shadow-clay-card group transition-all"
           >
-            <span>{isExpanded ? 'Tampilkan Lebih Sedikit' : 'Lihat Selengkapnya'}</span>
+            <span>{isExpanded ? t('catViewLess') : t('catViewMore')}</span>
             {!isExpanded ? (
               <>
-                <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-clayPurple-light text-clayPurple-dark">
-                  +{fullCatalog.length - 4} Alat Lainnya
+                <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-clayPurple-light dark:bg-purple-950 text-clayPurple-dark dark:text-purple-300">
+                  +{fullCatalog.length - 4} {t('catExtraTools')}
                 </span>
                 <ChevronDown className="w-4 h-4 text-clayPurple transition-transform group-hover:translate-y-0.5" />
               </>
